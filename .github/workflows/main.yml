@@ -8,8 +8,9 @@ on:
 
 jobs:
   build-and-push:
-    runs-on: private-runner
-    environment: DOCKER_CREDS_PERSONAL
+    runs-on: ubuntu-lateset
+    #runs-on: private-runner
+    environment: gitopsbiznet
 
     steps:
       # 1. Check out the repository.
@@ -30,6 +31,7 @@ jobs:
         with:
           images: ${{ vars.DOCKERHUB_USERNAME }}/your_ip
           # The "type=semver" option interprets the Git tag as a semantic version.
+          # your_ip sesuaikan dengan nama aplikasi yang dibuild
           # The pattern "{{version}}" uses the tag value as-is (e.g. "1.0.0").
           tags: |
             type=semver,pattern={{version}}
